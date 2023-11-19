@@ -1,0 +1,10 @@
+#naptar {
+    border-collapse: collapse;
+}
+#naptar, #naptar th, #naptar td {
+    border: 1px solid;
+    text-align: center;
+}
+#naptar .nap {
+    padding: 2em;
+}

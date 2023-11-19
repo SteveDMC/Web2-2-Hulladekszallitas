@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <title>MVC - PHP</title>
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT?>css/main_style.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
         <?php if($viewData['style']) echo '<link rel="stylesheet" type="text/css" href="'.$viewData['style'].'">'; ?>
+        <?php if($viewData['js']) echo '<script src="'.$viewData['js'].'"></script>'; ?>
     </head>
     <body>
         <header>
