@@ -27,6 +27,12 @@ class View_Loader
         $this->data[$variable] = $value;
     }
 
+    public function assignAll(array $vars)
+    {
+        foreach($vars as $name => $value)
+            $this->assign($name, $value);
+    }
+
     public function __destruct()
     {
         $this->data['render'] = $this->render;
