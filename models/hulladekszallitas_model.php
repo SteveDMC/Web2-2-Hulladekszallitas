@@ -9,6 +9,15 @@ class Hulladekszallitas_Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getSzolgaltatasNev(int $szolgid): string
+    {
+        $connection = Database::getConnection();
+        $stmt = $connection->prepare("select jelentes from szolgaltatas where id = ?;");
+        $stmt->execute([$szolgid]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['jelentes'] : 'Ismeretlen szolgáltatás';
+    }
+
     public function getEvek(): array
     {
         $connection = Database::getConnection();
@@ -50,6 +59,25 @@ class Hulladekszallitas_Model
         $stmt->execute([$kezdo_datum, $veg_datum]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getNapokLista(int $szolgid, int $ev, int $honap): array
+    {
+        $szallitasi_napok = array_map(function ($nap) {
+            return [
+                $nap['datum'] => 'szállítási nap'
+            ];
+        }, $this->getSzallitasiNapok($szolgid, $ev, $honap));
+
+        $igenyek = array_map(function ($nap) {
+            return [
+                $nap['igeny'] => sprintf('szállítási igény (mennyiség: %s)', $nap['mennyiseg'])
+            ];
+        }, $this->getIgenyek($szolgid, $ev, $honap));
+
+        $lista = array_merge($szallitasi_napok, $igenyek);
+        usort($lista, function ($a, $b) {
+            return key($a) <=> key($b);
+        });
+        return $lista;
+    }
 }
-// select jelentes as tipus, szum from (select szolgid, sum(mennyiseg) as szum from lakig where igeny between '2018-04-01' and '2018-04-31' group by szolgid) aggregalt join szolgaltatas on aggregalt.szolgid = szolgaltatas.id;
-// select jelentes as tipus, sum(mennyiseg) as mennyiseg from lakig join szolgaltatas on lakig.szolgid = szolgaltatas.id where igeny between '2018-04-01' and '2018-04-31' group by jelentes order by mennyiseg; 

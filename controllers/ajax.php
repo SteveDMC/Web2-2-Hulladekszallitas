@@ -12,7 +12,7 @@ class Ajax_Controller
         $hsz = new Hulladekszallitas_Model;
 
         $this->sendJson([
-            'hetek' => $naptar->getHetek($ev, $honap),
+            'napok' => $naptar->getNapok($ev, $honap),
             'szallitasi_napok' => $hsz->getSzallitasiNapok($szolg_id, $ev, $honap),
             'igenyek' => $hsz->getIgenyek($szolg_id, $ev, $honap),
             'mennyisegek' => $hsz->getMennyisegek($ev, $honap),

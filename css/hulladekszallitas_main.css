@@ -1,8 +1,10 @@
 section {
-    padding: 4em;
+    padding: 4em 15em;
 }
 #szuro {
     margin: 0 0 2rem;
+    display: flex;
+    gap: 0.5em;
 }
 #eredmeny {
     display: flex;
@@ -28,6 +30,7 @@ section {
 }
 #naptar .nap.szallitas {
     background-color: #82f050;
+    cursor: help;
 }
 #naptar .nap > div {
     display: flex;
@@ -35,10 +38,14 @@ section {
     margin-top: 0.3em;
 }
 #naptar .nap > div img {
-    width: 25px;
+    width: 20px;
+    cursor: help;
 }
 .canvas-wrapper {
     position: relative;
     flex: 1;
     max-height: 100%;
+}
+a#pdf-link {
+    display: none;
 }

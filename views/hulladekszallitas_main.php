@@ -18,7 +18,8 @@
     </select>
     <input type="number" id="ev" name="ev" min="<?= min($viewData['evek']) ?>" max="<?= max($viewData['evek']) ?>" list="evek" required>
     <input type="number" id="honap" name="honap" min="<?= min($viewData['honapok']) ?>" max="<?= max($viewData['honapok']) ?>" list="honapok" required>
-    <button type="submit">Lekérdez</button>
+    <button type="submit">Szűrés</button>
+    <a id="pdf-link" href="" target="_blank">PDF letöltése</a>
 </form>
 
 <div id="eredmeny">
@@ -29,8 +30,10 @@
 </div>
 
 <script>
+    const SITE_ROOT = "<?= SITE_ROOT ?>";
     const IMAGES_ROOT = "<?= SITE_ROOT . 'images/' ?>";
     const AJAX_URL = "<?= SITE_ROOT . 'ajax/' ?>";
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
