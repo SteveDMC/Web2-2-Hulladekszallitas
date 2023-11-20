@@ -11,15 +11,7 @@ h1.header {
 div#user {
     float: right;
 }
-aside {
-    float: left;
-    width: 160px;
-    margin: 0;
-    padding: 1em;
-}
 section {
-    margin-left: 190px;
-    border-left: 1px solid gray;
     padding: 1em;
 }
 ul {

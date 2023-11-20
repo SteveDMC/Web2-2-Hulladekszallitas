@@ -21,10 +21,16 @@
     <button type="submit">Lekérdez</button>
 </form>
 
-<div>
-    <table id="naptar"></table>
+<div id="eredmeny">
+    <div id="naptar"></div>
+    <div class="canvas-wrapper">
+        <canvas id="grafikon"></canvas>
+    </div>    
 </div>
 
 <script>
-    const AJAX_URL = '<?= SITE_ROOT . 'ajax/' ?>';
+    const IMAGES_ROOT = "<?= SITE_ROOT . 'images/' ?>";
+    const AJAX_URL = "<?= SITE_ROOT . 'ajax/' ?>";
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>

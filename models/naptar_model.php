@@ -20,7 +20,7 @@ class Naptar_Model
             }
             $hetek[$het][] = ['datum' => sprintf('%d-%02d-%02d', $ev, $honap, $i), 'nap' => $i];
         }
-        for ($i = 1; $i < count($hetek[$het]) % 7; $i++) { // utolsó hét maradék napjainak feltöltése üres napokkal
+        for ($i = 1; $i <= count($hetek[$het]) % 7; $i++) { // utolsó hét maradék napjainak feltöltése üres napokkal
             $hetek[$het][] = ['datum' => null, 'nap' => null];
         }
         return $hetek;
