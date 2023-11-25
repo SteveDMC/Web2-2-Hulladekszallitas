@@ -1,0 +1,59 @@
+section {
+    margin: 0 20%;
+}
+.nyito > h2 {
+    text-align: center;
+}
+.doboz {
+    display: block;
+}
+.doboz .alap {
+    width: 100%;
+    margin-bottom: 2em;
+}
+.doboz .kep {
+    vertical-align: middle; 
+    text-align: center;
+}
+.doboz img {
+    width: 80%;
+}
+@media only screen and (max-width: 1450px) {
+    section {
+        margin: 0 15%;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    section {
+        margin: 0 10%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    section {
+        margin: 0 5%;
+    }
+}
+@media only screen and (max-width: 970px) {
+    section {
+        margin: 0 10%;
+    }
+    .doboz .kep {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 650px) {
+    section {
+        margin: 0 2em;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .doboz .alap {
+        display: contents;
+    }
+    .doboz .kep {
+        float: none;
+    }
+    .doboz img {
+        width: 100%;
+    }
+}

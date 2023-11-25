@@ -1,12 +1,12 @@
 <?php
 
-class Hulladekszallitas_Controller
+class Alapinfok_Hulladekszallitas_Controller
 {
-	public $baseName = 'hulladekszallitas';
+	public $baseName = 'alapinfok_hulladekszallitas';
 
 	public function main(array $vars)
 	{
-		$model = new Hulladekszallitas_Model;
+		$model = new Alapinfok_Hulladekszallitas_Model;
 
         $view = new View_Loader($this->baseName."_main");
 		$view->assignAll([

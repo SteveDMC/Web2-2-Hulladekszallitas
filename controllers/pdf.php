@@ -8,7 +8,7 @@ class Pdf_Controller
         $ev = (int)$_GET['ev'];
         $honap = (int)$_GET['honap'];
 
-        $hsz = new Hulladekszallitas_Model;
+        $hsz = new Alapinfok_Hulladekszallitas_Model;
 
         Pdf_Model::generatePdf(
             $hsz->getNapokLista($szolg_id, $ev, $honap),

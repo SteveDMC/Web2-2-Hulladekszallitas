@@ -9,7 +9,7 @@ class Ajax_Controller
         $honap = (int)$_GET['honap'];
 
         $naptar = new Naptar_Model;
-        $hsz = new Hulladekszallitas_Model;
+        $hsz = new Alapinfok_Hulladekszallitas_Model;
 
         $this->sendJson([
             'napok' => $naptar->getNapok($ev, $honap),

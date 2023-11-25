@@ -52,6 +52,7 @@ class Grafikon {
                     title: {
                         display: true,
                         text: 'Havi mennyiségek megoszlása hulladék típusonként',
+                        font: {size:10},
                     }
                 }
             }

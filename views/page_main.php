@@ -2,15 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>MVC - PHP</title>
+        <title>Hulladékszállítás - MVC</title>
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT?>css/main_style.css">
         <?php if($viewData['style']) echo '<link rel="stylesheet" type="text/css" href="'.$viewData['style'].'">'; ?>
         <?php if($viewData['js']) echo '<script src="'.$viewData['js'].'"></script>'; ?>
     </head>
     <body>
         <header>
-            <div id="user"><em><?= $_SESSION['userlastname']." ".$_SESSION['userfirstname'] ?></em></div>
-            <h1 class="header">Web-programozás II - MVC alkalmazás</h1>
+            <h1 class="header">Hulladékszállítás - MVC alkalmazás</h1>
+            <?php if ($_SESSION['userid']): ?>
+                <div id="user">Bejelentkezett: <em><?= $_SESSION['userlastname']." ".$_SESSION['userfirstname'] ?> (<?= $_SESSION['nickname'] ?>)</em></div>
+            <?php endif; ?>
         </header>
         <nav>
             <?php echo Menu::getMenu($viewData['selectedItems']); ?>

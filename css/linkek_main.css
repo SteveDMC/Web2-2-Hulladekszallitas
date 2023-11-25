@@ -1,0 +1,57 @@
+section {
+    margin: 0 10%;
+}
+section > h2 {
+    margin-top: 2em;
+}
+.linkek {
+    display: grid;
+    width: 100%;
+    margin-bottom: 2em;
+}
+.linkek a {
+    text-decoration: none;
+    color: blue;
+    float: none;
+    width: 100%;
+    background-color: white;
+}
+.linkek a.selected {
+    background-color: white;
+}
+.linkek a:hover { 
+    background-color: white;
+}
+.linkek > h1 {
+    font-size: 14px;
+}
+@media only screen and (max-width: 1450px) {
+    section {
+        margin: 0 15%;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    section {
+        margin: 0 10%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    section {
+        margin: 0 5%;
+    }
+}
+@media only screen and (max-width: 970px) {
+    section {
+        margin: 0 10%;
+    }
+}
+@media only screen and (max-width: 650px) {
+    section {
+        margin: 0 2em;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .doboz .alap {
+        display: contents;
+    }
+}

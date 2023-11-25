@@ -1,0 +1,98 @@
+section {
+    margin: 0 10%;
+}
+th, td, tr {
+    text-align: center;
+}
+.doboz {
+    display: -webkit-box;
+}
+.doboz .nyit {
+    width: 20%;
+    text-align: -moz-center;
+    margin-top: 1em;
+}
+.doboz .kep {
+    vertical-align: middle; 
+    margin: 2em;
+    text-align: center;
+    /*float: right;*/
+}
+.doboz img {
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+.cim {
+    padding-top: 2em;
+}
+@media only screen and (max-width: 1450px) {
+    section {
+        margin: 0 15%;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    section {
+        margin: 0 10%;
+    }
+    .doboz .kep {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    section {
+        margin: 0 5%;
+    }
+    .doboz .kep {
+        width: 75%;
+    }
+}
+@media only screen and (max-width: 970px) {
+    section {
+        margin: 0 10%;
+    }
+    .doboz .kep {
+        width: 50%;
+    }
+    .doboz .cim {
+        margin-top: 0;
+    }
+    .doboz .nyit {
+        width: 50%;
+        text-align: -moz-center;
+    }
+}
+@media only screen and (max-width: 650px) {
+    section {
+        margin: 0 2em;
+    }
+    .doboz .kep {
+        width: 90%;
+        text-align: center;
+    }
+    .doboz {
+        display: block;
+
+    }
+    .doboz .nyit {
+        width: 100%;
+        text-align: -moz-center;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .doboz {
+        display: block;
+    }
+    .doboz .nyit {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    .doboz .nyit, .kep {
+        display: block;
+    }
+    .doboz .kep {
+        margin: auto;
+    }
+    .doboz img {
+        width: 100%;
+    }
+}

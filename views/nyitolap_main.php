@@ -1,5 +1,12 @@
-<h2>
-    <br>Üdvözöljük az új rendszerünkben!<br>
-    <br>Jó munkát kívánunk a rendszerünkkel!<br>
-    <br>Kezdhet ...<br>
-</h2>
+<div class="nyito">
+    <h2>
+        <br>Üdvözöljük oldalunkon!<br>
+        <br>Keressen minket buzalommal a hulladékai elszállításával kapcsolatban!<br>
+        <br>Jó böngészést kívánunk!<br>
+    </h2>
+</div>
+<div class="doboz">
+    <div class="kep">
+        <img src="<?= SITE_ROOT . 'images/hulladekszallitas.jpg' ?>"/>
+    </div>
+</div>

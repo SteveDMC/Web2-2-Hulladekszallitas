@@ -1,6 +1,6 @@
 <?php
 
-class Hulladekszallitas_Model
+class Alapinfok_Hulladekszallitas_Model
 {
     public function getSzolgaltatasok(): array
     {

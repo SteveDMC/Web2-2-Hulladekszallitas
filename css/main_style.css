@@ -2,37 +2,59 @@ header, footer {
     padding: 0.5em; 
     color: white;
     background-color: gray;
-    clear: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 h1.header {
     padding: 0;
     margin: 0;
 }
+aside {
+    width: 160px;
+    margin: 0;
+    padding: 1em;
+}/*
 div#user {
     float: right;
-}
+}*/
 section {
     padding: 1em;
 }
-ul {
+nav ul {
     float:left;
     width:100%; /* A menü az alatta levő szövegtől elválik, birtokolja a teljes vízszintes sávját. */
     padding:0;
     margin:0;
     list-style-type:none;
-    background-color: lightblue;
+    background-color: rgb(255, 241, 162);
 }        
 a {
     float:left;
-    width:6em; /* Fix szélességű gombok érhetők el. Érdemes azonban vigyázni ezzel a módszerrel, mert ha a szöveg nem fér ki, a dizájn szétesik. */
+    width: 7em; /* Fix szélességű gombok érhetők el. Érdemes azonban vigyázni ezzel a módszerrel, mert ha a szöveg nem fér ki, a dizájn szétesik. */
     text-decoration:none; /* Ne legyen aláhúzva a link. */
-    color:white;
-    background-color:navy;
+    color:rgb(87, 87, 87);
+    background-color:rgb(226, 147, 36);
     padding:0.2em 0.6em;
     border-right:1px solid white;
 }
 a.selected{
-    background-color: blue;
+    background-color: rgb(255, 197, 24);
 }
-a:hover { background-color:#ff3300} /* Az egérkurzorra színváltással reagál a menüpont. */
-li { display:inline } /* Ez a sor oldja meg, hogy a menüpontok egymás mellé kerüljenek. */
+a:hover {
+     background-color:#ff3300 /* Az egérkurzorra színváltással reagál a menüpont. */
+} 
+li {
+     display:inline /* Ez a sor oldja meg, hogy a menüpontok egymás mellé kerüljenek. */
+} 
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+}

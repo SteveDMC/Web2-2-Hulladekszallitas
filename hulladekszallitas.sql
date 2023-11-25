@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Nov 04. 16:18
+-- Létrehozás ideje: 2023. Nov 25. 02:14
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `hulladekszallitas`
 --
-
-CREATE DATABASE IF NOT EXISTS `hulladekszallitas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `hulladekszallitas` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `hulladekszallitas`;
 
 -- --------------------------------------------------------
@@ -44,16 +43,16 @@ CREATE TABLE `felhasznalok` (
 --
 
 INSERT INTO `felhasznalok` (`id`, `csaladi_nev`, `utonev`, `bejelentkezes`, `jelszo`, `jogosultsag`) VALUES
-(1, 'Rendszer', 'Admin', 'Admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '__1'),
-(2, 'Családi_2', 'Utónév_2', 'Login2', '6cf8efacae19431476020c1e2ebd2d8acca8f5c0', '_1_'),
-(3, 'Családi_3', 'Utónév_3', 'Login3', 'df4d8ad070f0d1585e172a2150038df5cc6c891a', '_1_'),
-(4, 'Családi_4', 'Utónév_4', 'Login4', 'b020c308c155d6bbd7eb7d27bd30c0573acbba5b', '_1_'),
-(5, 'Családi_5', 'Utónév_5', 'Login5', '9ab1a4743b30b5e9c037e6a645f0cfee80fb41d4', '_1_'),
-(6, 'Családi_6', 'Utónév_6', 'Login6', '7ca01f28594b1a06239b1d96fc716477d198470b', '_1_'),
-(7, 'Családi_7', 'Utónév_7', 'Login7', '41ad7e5406d8f1af2deef2ade4753009976328f8', '_1_'),
-(8, 'Családi_8', 'Utónév_8', 'Login8', '3a340fe3599746234ef89591e372d4dd8b590053', '_1_'),
-(9, 'Családi_9', 'Utónév_9', 'Login9', 'c0298f7d314ecbc5651da5679a0a240833a88238', '_1_'),
-(10, 'Családi_10', 'Utónév_10', 'Login10', 'a477427c183664b57f977661ac3167b64823f366', '_1_');
+(10, 'Jakab', 'Péter', 'japeter', 'a477427c183664b57f977661ac3167b64823f366', '_1_'),
+(9, 'Bogdán', 'Bálint', 'boba_fet', 'c0298f7d314ecbc5651da5679a0a240833a88238', '_1_'),
+(8, 'Lovász', 'Maja', 'majami78', '3a340fe3599746234ef89591e372d4dd8b590053', '_1_'),
+(7, 'Király', 'András', 'kingandras', '41ad7e5406d8f1af2deef2ade4753009976328f8', '_1_'),
+(6, 'Biró', 'Tamás', 'bitomi55', '7ca01f28594b1a06239b1d96fc716477d198470b', '_1_'),
+(5, 'Balogh', 'Kristóf', 'babalogh', '9ab1a4743b30b5e9c037e6a645f0cfee80fb41d4', '_1_'),
+(4, 'Gulyás', 'Szilvia', 'gulyas_szilv', 'b020c308c155d6bbd7eb7d27bd30c0573acbba5b', '_1_'),
+(3, 'Lukács', 'Lilla', 'lilu50', 'df4d8ad070f0d1585e172a2150038df5cc6c891a', '_1_'),
+(2, 'Mohácsi', 'Nóra', 'monono_232', '6cf8efacae19431476020c1e2ebd2d8acca8f5c0', '_1_'),
+(1, 'Fodor', 'Kornél', 'Admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '__1');
 
 -- --------------------------------------------------------
 
@@ -204,12 +203,13 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
 ('admin', 'Admin', '', '001', 80),
-('alapinfok', 'Alapinfók', 'elerhetoseg', '111', 40),
+('alapinfok', 'Alapinfók', '', '111', 20),
 ('belepes', 'Belépés', '', '100', 60),
-('elerhetoseg', 'Elérhetőség', '', '111', 20),
-('kiegeszitesek', 'Kiegészítések', 'elerhetoseg', '011', 50),
+('elerhetoseg', 'Elérhetőség', 'alapinfok', '111', 40),
+('hulladekszallitas', 'Hulladékszállítás', 'alapinfok', '011', 50),
+('kiegeszitesek', 'Kiegészítések', 'alapinfok', '001', 90),
 ('kilepes', 'Kilépés', '', '011', 70),
-('linkek', 'Linkek', '', '100', 30),
+('linkek', 'Linkek', '', '111', 30),
 ('nyitolap', 'Nyitólap', '', '111', 10);
 
 -- --------------------------------------------------------
