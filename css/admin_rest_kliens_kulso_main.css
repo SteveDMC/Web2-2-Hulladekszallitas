@@ -1,0 +1,31 @@
+section {
+    padding: 4em 1%;
+    background-color:palegreen;
+}
+.rest {
+    padding-bottom: 5px;
+}
+label {
+    display: inline-block;
+    margin: 5px 0;
+}
+.http {
+    background-color:mediumseagreen;
+    width: fit-content;
+}
+.eredmeny > table {
+    border: black solid thin;
+}
+@media only screen and (max-width: 810px) {
+    .rest {
+        margin: 1em 0;
+        display: grid;
+    }
+    .http {
+        width: auto;
+    }
+    .http, .rest {
+        margin-top: 0;
+        text-align: center;
+    }
+}

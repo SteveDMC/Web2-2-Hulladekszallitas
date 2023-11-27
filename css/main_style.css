@@ -35,7 +35,7 @@ nav ul {
     list-style-type:none;
     background-color: rgb(255, 241, 162);
 }        
-a {
+nav a {
     float:left;
     width: 7em; /* Fix szélességű gombok érhetők el. Érdemes azonban vigyázni ezzel a módszerrel, mert ha a szöveg nem fér ki, a dizájn szétesik. */
     text-decoration:none; /* Ne legyen aláhúzva a link. */

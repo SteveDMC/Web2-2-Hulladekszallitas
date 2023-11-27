@@ -1,8 +1,11 @@
 <?php
 
-class Rest_Kliens_Controller
+class Admin_Rest_Kliens_Controller
 {
-    public $baseName = 'rest_kliens';
+    protected const REST_URL = SITE_ROOT . 'rest';
+    protected const AUTH_TOKEN = null;
+
+    public $baseName = 'admin_rest_kliens';
 
     public function main(array $vars)
     {
@@ -13,10 +16,7 @@ class Rest_Kliens_Controller
             $resource_id = (int)$vars["id"] ?: null;
             $data = null;
             if (in_array($method, ["POST", "PUT"])) {
-                $data = [
-                    "tipus" => $vars["tipus"],
-                    "jelentes" => $vars["jelentes"],
-                ];
+                $data = $this->getDataFromInputs($vars);
             }
             [$http_code, $result] = $this->sendRequest($method, $resource_id, $data);
             if (is_array($result) && !array_is_list($result)) {
@@ -30,9 +30,17 @@ class Rest_Kliens_Controller
         ]);
     }
 
+    protected function getDataFromInputs(array $vars): array
+    {
+        return [
+            "tipus" => $vars["tipus"],
+            "jelentes" => $vars["jelentes"],
+        ];
+    }
+
     protected function sendRequest(string $method, ?int $resource_id, ?array $data)
     {
-        $url = SITE_ROOT . 'rest';
+        $url = static::REST_URL;
         if ($resource_id) {
             $url .= '/' . $resource_id;
         }
@@ -41,10 +49,16 @@ class Rest_Kliens_Controller
         if ($data) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         }
+        $headers = ["Content-Type: application/json"];
+        if (static::AUTH_TOKEN) {
+            $headers[] = "Authorization: Bearer " . static::AUTH_TOKEN;
+        }
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $result = curl_exec($ch);
+        $response = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return [$http_code, json_decode($result, true)];
+        $result = ($http_code >= 200 && $http_code < 300) ? json_decode($response, true) : null;
+        return [$http_code, $result];
     }
 }

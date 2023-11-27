@@ -7,6 +7,6 @@
 </div>
 <div class="doboz">
     <div class="kep">
-        <img src="<?= SITE_ROOT . 'images/hulladekszallitas.jpg' ?>"/>
+        <a href="<?= SITE_ROOT . 'alapinfok'?> "><img src="<?= SITE_ROOT . 'images/hulladekszallitas.jpg' ?>"/></a>
     </div>
 </div>
