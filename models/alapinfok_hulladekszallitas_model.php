@@ -5,8 +5,39 @@ class Alapinfok_Hulladekszallitas_Model
     public function getSzolgaltatasok(): array
     {
         $connection = Database::getConnection();
-        $stmt = $connection->query("select id, jelentes from szolgaltatas order by id;");
+        $stmt = $connection->query("select * from szolgaltatas order by id;");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getSzolgaltatasById(int $szolgid): array|bool
+    {
+        $connection = Database::getConnection();
+        $stmt = $connection->prepare("select * from szolgaltatas where id = ?;");
+        $stmt->execute([$szolgid]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function insertSzolgaltatas(array $data): array
+    {
+        $connection = Database::getConnection();
+        $connection->prepare("insert into szolgaltatas (tipus, jelentes) values (?, ?);")->execute([$data['tipus'], $data["jelentes"]]);
+        return $this->getSzolgaltatasById($connection->lastInsertId());
+    }
+
+    public function updateSzolgaltatas(int $id, array $data): int
+    {
+        $connection = Database::getConnection();
+        $stmt = $connection->prepare("update szolgaltatas set tipus=?, jelentes=? where id=?;");
+        $stmt->execute([$data['tipus'], $data["jelentes"], $id]);
+        return $stmt->rowCount();
+    }
+
+    public function deleteSzolgaltatas(int $id): int
+    {
+        $connection = Database::getConnection();
+        $stmt = $connection->prepare("delete from szolgaltatas where id=?;");
+        $stmt->execute([$id]);
+        return $stmt->rowCount();
     }
 
     public function getSzolgaltatasNev(int $szolgid): string

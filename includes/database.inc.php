@@ -10,7 +10,7 @@
         public static function getConnection() {
             if(! self::$connection) {
                 self::$connection = new PDO('mysql:host='.HOST.';dbname='.DATABASE, USER, PASSWORD,
-                      array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+                      array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_FOUND_ROWS=>true));
                 self::$connection->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
             }
             return self::$connection;
