@@ -210,8 +210,8 @@ INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
 ('kiegeszitesek', 'Kiegészítések', 'alapinfok', '001', 90),
 ('kilepes', 'Kilépés', '', '011', 70),
 ('linkek', 'Linkek', '', '111', 30),
-('nyitolap', 'Nyitólap', '', '111', 10);
-('rest_kliens', 'Rest kliens', 'admin', '001', 100);
+('nyitolap', 'Nyitólap', '', '111', 10),
+('rest_kliens', 'Rest kliens', 'admin', '001', 100),
 ('rest_kliens_kulso', 'Rest külső', 'admin', '001', 110);
 
 -- --------------------------------------------------------
